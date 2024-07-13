@@ -10,8 +10,13 @@ function autoIncrementTime(){
         seconds = 0;
         minutes++;
     }
+
     document.getElementById('progress').innerText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
     document.getElementById('progress-bar').style.width = (minutes * 60 + seconds) / (parseInt(document.getElementById('length').innerText.split(':')[0]) * 60 + parseInt(document.getElementById('length').innerText.split(':')[1])) * 100 + '%';
+
+    if(minutes = parseInt(document.getElementById('length').innerText.split(':')[0]) && seconds >= parseInt(document.getElementById('length').innerText.split(':')[1])){
+        getData();
+    }
 }
 
 function secondsToTime(seconds){
@@ -61,6 +66,10 @@ document.getElementById('next-btn').addEventListener('click', () => {
     .then(() => getDataAfterTimeout(500));
 }
 );
+
+document.getElementById('title').addEventListener('click', () => {
+    getData();
+});
 
 function getDataAfterTimeout(ms){
     setTimeout(getData, ms);
