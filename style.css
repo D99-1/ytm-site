@@ -99,7 +99,6 @@ body, html {
   flex-direction: column;
   flex: 1;
   padding-top: 60px;
-  margin-bottom: 50px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   position: relative;
@@ -158,7 +157,7 @@ body, html {
   display: flex;
   gap: 0.25rem;
   color: #9ca3af;
-  font-size: 0.875rem;
+  font-size: 1.15rem;
 }
 
 .track-actions {
@@ -172,6 +171,7 @@ body, html {
   border: none;
   color: inherit;
   cursor: pointer;
+  outline: none;
 }
 
 .player-btn-hero {
@@ -179,6 +179,7 @@ body, html {
   border: none;
   color: inherit;
   cursor: pointer;
+  outline: none;
 }
 
 .player-btn img{
@@ -193,7 +194,7 @@ body, html {
 
 .progress-bar-container {
   padding-top: 1rem;
-  margin-top:50px;
+  margin-top:10px;
 }
 
 .progress-bar {
@@ -214,12 +215,13 @@ body, html {
   gap: 10rem;
   background-color: rgba(249, 250, 251, 0.05);
   color: #e5e7eb;
-  height: 4rem;
+  height: max-content;
   margin-top: 0px;
+  padding: 20px 10px 10px 10px;
 }
 
 .square-image{
   height: 300px;
   width: 300px;
-  border-radius:10px;
+  border-radius:10%;
 }
