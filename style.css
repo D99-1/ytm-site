@@ -89,7 +89,7 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-background-image: url("http://lh3.googleusercontent.com/t1S8cY9gXzzX9TonWts7MRErPxz989h4-tny0vykiKY6nRfek19MrCG7df7PvOao8z0lDClEjfv-usyDoA=w544-h544-l90-rj");
+  background-image: none;
   opacity: 0.25;
   filter: blur(8px);
 }
@@ -174,25 +174,44 @@ background-image: url("http://lh3.googleusercontent.com/t1S8cY9gXzzX9TonWts7MREr
   cursor: pointer;
 }
 
+.player-btn-hero {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.player-btn img{
+  height: 70px;
+  width: 70px;
+}
+
+.player-btn-hero img{
+  height: 75px;
+  width: 75px;
+}
+
 .progress-bar-container {
   padding-top: 1rem;
   margin-top:50px;
 }
 
 .progress-bar {
-  height: 0.25rem;
-  background-color: white;
+  height: 1rem;
+  background-color: rgb(255, 255, 255);
   transition: height 0.15s ease-in-out;
+  width: 100%;
 }
 
 .progress-bar-container:hover .progress-bar {
-  height: 0.5rem;
+  height: 1.5rem;
 }
 
 .player-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10rem;
   background-color: rgba(249, 250, 251, 0.05);
   color: #e5e7eb;
   height: 4rem;

@@ -17,16 +17,16 @@
     <div class="content">
       <div class="track-info">
         <div class="track-thumbnail">
-          <img src="http://lh3.googleusercontent.com/t1S8cY9gXzzX9TonWts7MRErPxz989h4-tny0vykiKY6nRfek19MrCG7df7PvOao8z0lDClEjfv-usyDoA=w544-h544-l90-rj" alt="Track Thumbnail" class="square-image">
+          <img src="" alt="Track Thumbnail" id="thumbnail" class="square-image">
         </div>
         <div class="track-details">
           <div class="track-meta">
-            <h2 class="track-title">Track Title</h2>
-            <p class="track-author">by Author</p>
-            <div class="track-time">
-              <p class="current-time">Time 1</p>
+            <h2 class="track-title" id="title">Track Title</h2>
+            <p class="track-author" id="artist">by Artist</p>
+            <div class="track-time" >
+              <p class="current-time" id="progress">Time 1</p>
               <p>/ </p>
-              <p class="total-time">Time 2</p>
+              <p class="total-time" id="length">Time 2</p>
             </div>
           </div>
         </div>
@@ -37,11 +37,9 @@
       </div>
       <div class="player-controls">
 
-        <button class="player-btn prev-btn">Previous</button>
-        <button class="player-btn backward-btn">Rewind 10s</button>
-        <button class="player-btn-hero play-pause-btn">Pause</button>
-        <button class="player-btn forward-btn">Skip 10s</button>
-        <button class="player-btn next-btn">Next</button>
+        <button class="player-btn prev-btn"><img src="./assets/Back icon.png"></button>
+        <button class="player-btn-hero play-pause-btn"><img id="play-pause-btn" src="./assets/Pause square.png"></button>
+        <button class="player-btn next-btn"><img src="./assets/Next icon.png"></button>
       </div>
     </div>
   </div>
