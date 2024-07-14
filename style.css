@@ -226,3 +226,30 @@ body, html {
   width: 300px;
   border-radius:10%;
 }
+
+.volume-slider{
+  rotate: -90deg;
+  width: 105px;
+  transform: scale(2);
+}
+
+.hidden{
+  display: none;
+}
+
+.volume-button{
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.volume-button img{
+  height: 40px;
+  width: 40px;
+}
+
+.volume-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 110px;
+}

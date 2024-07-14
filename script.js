@@ -51,7 +51,7 @@ setInterval(getData, 30000);
 
 document.getElementById('play-pause-btn').addEventListener('click', () => {
     fetch('http://192.168.0.162:13091/volume/togglePausePlay')
-    .then(() => getDataAfterTimeout(100));
+    .then(() => getDataAfterTimeout(150));
 }
 );
 
@@ -67,6 +67,10 @@ document.getElementById('next-btn').addEventListener('click', () => {
 }
 );
 
+document.getElementById('thumbnail').addEventListener('click', () => {
+    getData();
+});
+
 document.getElementById('title').addEventListener('click', () => {
     getData();
 });
@@ -74,3 +78,15 @@ document.getElementById('title').addEventListener('click', () => {
 function getDataAfterTimeout(ms){
     setTimeout(getData, ms);
 }
+
+document.getElementById('volume-button').addEventListener('click', () => {
+    let slider = document.getElementById('volume-slider');
+    slider.classList.toggle('hidden');
+    if(!slider.classList.contains('hidden')){
+        fetch(`http://192.168.0.162:13091/volume/get`)
+        .then(response => response.text())
+        .then(data => {
+            slider.value = data;
+        });
+    }
+})
