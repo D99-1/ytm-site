@@ -40,6 +40,8 @@ function getData(){
         document.getElementById('length').innerText = secondsToTime(data.length)
         document.getElementById('progress-bar').style.width = (data.progress / data.length) * 100 + '%';
         document.getElementById('progress-bar').style.backgroundColor = `rgb(${data.accentr}, ${data.accentg}, ${data.accentb})`;
+        const darker = `rgb(${data.accentr - 100}, ${data.accentg - 100}, ${data.accentb - 100})`;
+        document.getElementById('volume-slider').style.accentColor = darker;
         document.getElementById('thumbnail-background').style.backgroundImage = `url('${data.image}')`;
         if(data.playing){
         progressInterval = setInterval(autoIncrementTime, 1000);
@@ -90,3 +92,9 @@ document.getElementById('volume-button').addEventListener('click', () => {
         });
     }
 })
+
+function setVol(){
+    console.log(document.getElementById('volume-slider').value)
+    fetch(`http://192.168.0.162:13091/volume/${document.getElementById('volume-slider').value}`);
+}
+

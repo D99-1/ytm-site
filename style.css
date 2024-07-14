@@ -231,6 +231,7 @@ body, html {
   rotate: -90deg;
   width: 105px;
   transform: scale(2);
+  accent-color: #FFF;
 }
 
 .hidden{
