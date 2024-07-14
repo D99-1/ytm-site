@@ -41,7 +41,7 @@ function getData(){
         document.getElementById('progress-bar').style.width = (data.progress / data.length) * 100 + '%';
         document.getElementById('progress-bar').style.backgroundColor = `rgb(${data.accentr}, ${data.accentg}, ${data.accentb})`;
         const darker = `rgb(${data.accentr - 100}, ${data.accentg - 100}, ${data.accentb - 100})`;
-        document.getElementById('volume-slider').style.accentColor = darker;
+        document.getElementById('volume-slider-style').innerHTML = `.volume-slider::-webkit-slider-thumb {border: 2px solid ${darker}; box-shadow: -407px 0 0 400px ${darker};}`;
         document.getElementById('thumbnail-background').style.backgroundImage = `url('${data.image}')`;
         if(data.playing){
         progressInterval = setInterval(autoIncrementTime, 1000);

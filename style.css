@@ -239,7 +239,7 @@ body, html {
 }
 
 .volume-button{
-  margin-bottom: 100px;
+  margin-bottom: 105px;
   margin-top: 20px;
 }
 
@@ -253,4 +253,26 @@ body, html {
   flex-direction: column;
   margin-top: 20px;
   width: 110px;
+}
+
+
+.volume-slider{
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 15px;
+  width: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: 2px solid #f50;
+  box-shadow: -407px 0 0 400px #f50;
 }
