@@ -13,6 +13,11 @@ function autoIncrementTime(){
 
     document.getElementById('progress').innerText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
     document.getElementById('progress-bar').value = (minutes * 60) + seconds;
+    if(((minutes * 60) + seconds) > 0){
+        document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:rgb(${data.accentr},${data.accentg},${data.accentb});border: 2px solid rgb(${data.accentr},${data.accentg},${data.accentb}); box-shadow: -407px 0 0 400px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
+    } else {
+        document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:#fff;border: 2px solid #fff; box-shadow: -407px 0 0 400px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
+    }
 
     if(minutes = parseInt(document.getElementById('length').innerText.split(':')[0]) && seconds >= parseInt(document.getElementById('length').innerText.split(':')[1])){
         getData();
@@ -41,11 +46,21 @@ function getData(){
         document.getElementById('progress-bar').max = data.length;
         document.getElementById('progress-bar').value = data.progress;
         const darker = `rgb(${data.accentr - 100}, ${data.accentg - 100}, ${data.accentb - 100})`;
+
         document.getElementById('volume-slider-style').innerHTML = `.volume-slider::-webkit-slider-thumb {border: 2px solid ${darker}; box-shadow: -407px 0 0 400px ${darker};}`;
+
         document.getElementById('thumbnail-background').style.backgroundImage = `url('${data.image}')`;
         if(data.playing){
         progressInterval = setInterval(autoIncrementTime, 1000);
         }
+        if(Math.round(data.progress > 0)){
+            document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:rgb(${data.accentr},${data.accentg},${data.accentb});border: 2px solid rgb(${data.accentr},${data.accentg},${data.accentb}); box-shadow: -407px 0 0 400px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
+        } else {
+            document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:#fff;border: 2px solid #fff; box-shadow: -407px 0 0 400px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
+        }
+
+          //  document.getElementById('progress-bar-style').innerHTML = `.progress-bar::webkit-slider-thumb { border: 2px solid #fff; box-shadow: -3007px 0 0 3000px rgb(${data.accentr}, ${data.accentg}, ${data.accentb});`;
+        
     });
 }
 getData()
@@ -53,7 +68,7 @@ setInterval(getData, 30000);
 
 document.getElementById('play-pause-btn').addEventListener('click', () => {
     fetch('http://192.168.0.162:13091/volume/togglePausePlay')
-    .then(() => getDataAfterTimeout(150));
+    .then(() => getDataAfterTimeout(500));
 }
 );
 
@@ -98,3 +113,7 @@ function setVol(){
     fetch(`http://192.168.0.162:13091/volume/${document.getElementById('volume-slider').value}`);
 }
 
+document.getElementById('progress-bar').addEventListener('input', () => {
+    // working on getting current box shadow
+    document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:#fff;border: 2px solid #fff; box-shadow: ${document.getElementById('progress-bar').style.boxShadow};}`;
+});
