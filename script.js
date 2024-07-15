@@ -12,7 +12,7 @@ function autoIncrementTime(){
     }
 
     document.getElementById('progress').innerText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-    document.getElementById('progress-bar').style.width = (minutes * 60 + seconds) / (parseInt(document.getElementById('length').innerText.split(':')[0]) * 60 + parseInt(document.getElementById('length').innerText.split(':')[1])) * 100 + '%';
+    document.getElementById('progress-bar').value = (minutes * 60) + seconds;
 
     if(minutes = parseInt(document.getElementById('length').innerText.split(':')[0]) && seconds >= parseInt(document.getElementById('length').innerText.split(':')[1])){
         getData();
@@ -38,8 +38,8 @@ function getData(){
         document.getElementById('artist').innerText = data.artist;
         document.getElementById('progress').innerText = secondsToTime(data.progress)
         document.getElementById('length').innerText = secondsToTime(data.length)
-        document.getElementById('progress-bar').style.width = (data.progress / data.length) * 100 + '%';
-        document.getElementById('progress-bar').style.backgroundColor = `rgb(${data.accentr}, ${data.accentg}, ${data.accentb})`;
+        document.getElementById('progress-bar').max = data.length;
+        document.getElementById('progress-bar').value = data.progress;
         const darker = `rgb(${data.accentr - 100}, ${data.accentg - 100}, ${data.accentb - 100})`;
         document.getElementById('volume-slider-style').innerHTML = `.volume-slider::-webkit-slider-thumb {border: 2px solid ${darker}; box-shadow: -407px 0 0 400px ${darker};}`;
         document.getElementById('thumbnail-background').style.backgroundImage = `url('${data.image}')`;

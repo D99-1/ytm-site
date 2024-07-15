@@ -203,7 +203,23 @@ body, html {
   transition: height 0.15s ease-in-out;
   width: 100%;
   border-radius: 0.5rem;
-}
+  -webkit-appearance: none;
+  appearance: none; 
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  }
+
+  .progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #f50;
+    border-radius: 0.5rem;
+    border: 2px solid #f50;
+    box-shadow: -2907px 0 0 2900px #f50;
+  }
 
 .progress-bar-container:hover .progress-bar {
   height: 1.5rem;
