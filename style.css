@@ -1,11 +1,13 @@
 /* Add these styles to styles.css */
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
 * {
   font-family: "Nunito" !important;
   font-weight: bolder;
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -182,19 +184,19 @@ body, html {
   outline: none;
 }
 
-.player-btn img{
+.player-btn img {
   height: 70px;
   width: 70px;
 }
 
-.player-btn-hero img{
+.player-btn-hero img {
   height: 75px;
   width: 75px;
 }
 
 .progress-bar-container {
   padding-top: 1rem;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .progress-bar {
@@ -204,19 +206,19 @@ body, html {
   width: 100%;
   border-radius: 0.5rem;
   -webkit-appearance: none;
-  appearance: none; 
+  appearance: none;
   cursor: pointer;
   outline: none;
   overflow: hidden;
-  }
+}
 
-  .progress-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none; 
-    height: 1.5rem;
-    width: 1.5rem;
-    border-radius: 0.5rem;
-  }
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0.5rem;
+}
 
 .progress-bar-container:hover .progress-bar {
   height: 1.5rem;
@@ -234,34 +236,34 @@ body, html {
   padding: 20px 10px 10px 10px;
 }
 
-.square-image{
+.square-image {
   height: 300px;
   width: 300px;
-  border-radius:10%;
+  border-radius: 10%;
 }
 
-.volume-slider{
+.volume-slider {
   rotate: -90deg;
   width: 105px;
   transform: scale(2);
   accent-color: #FFF;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.volume-button{
+.volume-button {
   margin-bottom: 105px;
   margin-top: 20px;
 }
 
-.volume-button img{
+.volume-button img {
   height: 40px;
   width: 40px;
 }
 
-.volume-container{
+.volume-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -269,9 +271,9 @@ body, html {
 }
 
 
-.volume-slider{
+.volume-slider {
   -webkit-appearance: none;
-  appearance: none; 
+  appearance: none;
   width: 100%;
   cursor: pointer;
   outline: none;
@@ -281,7 +283,7 @@ body, html {
 
 .volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none; 
+  appearance: none;
   height: 15px;
   width: 15px;
   background-color: rgb(255, 255, 255);

@@ -8,7 +8,7 @@
   <title>Youtube Music Controller</title>
   <link rel="icon" href="./assets/logo.png" type="image/x-icon">
   <script defer src="https://dagammla.gitlab.io/keep-silk-open/keep.js">
-  </script>  
+  </script>
 </head>
 
 <body>
@@ -20,13 +20,14 @@
     <div class="content">
       <div class="track-info">
         <div class="track-thumbnail">
-          <img src="https://t3.ftcdn.net/jpg/02/68/55/60/360_F_268556012_c1WBaKFN5rjRxR2eyV33znK4qnYeKZjm.jpg" alt="Track Thumbnail" id="thumbnail" class="square-image">
+          <img src="https://t3.ftcdn.net/jpg/02/68/55/60/360_F_268556012_c1WBaKFN5rjRxR2eyV33znK4qnYeKZjm.jpg"
+            alt="Track Thumbnail" id="thumbnail" class="square-image">
         </div>
         <div class="track-details">
           <div class="track-meta">
             <h2 class="track-title" id="title">Track Title</h2>
             <p class="track-author" id="artist">by Artist</p>
-            <div class="track-time" >
+            <div class="track-time">
               <p class="current-time" id="progress">Time 1</p>
               <p>/ </p>
               <p class="total-time" id="length">Time 2</p>
@@ -34,17 +35,19 @@
           </div>
         </div>
         <div class="volume-container">
-        <button class="volume-button player-btn" id="volume-button"><img src="./assets/Volume icon.png"></button>
-        <input type="range" class="volume-slider hidden" id="volume-slider" min="0" max="100" value="0" step="1" onchange="setVol()">
+          <button class="volume-button player-btn" id="volume-button"><img src="./assets/Volume icon.png"></button>
+          <input type="range" class="volume-slider hidden" id="volume-slider" min="0" max="100" value="0" step="1"
+            onchange="setVol()">
+        </div>
       </div>
-      </div>
-              <div class="progress-bar-container">
+      <div class="progress-bar-container">
         <input class="progress-bar" id="progress-bar" type="range" min="0" max="100">
       </div>
       <div class="player-controls">
 
         <button class="player-btn prev-btn" id="prev-btn"><img src="./assets/Back icon.png"></button>
-        <button class="player-btn-hero play-pause-btn"><img id="play-pause-btn" src="./assets/Pause square.png"></button>
+        <button class="player-btn-hero play-pause-btn"><img id="play-pause-btn"
+            src="./assets/Pause square.png"></button>
         <button class="player-btn next-btn" id="next-btn"><img src="./assets/Next icon.png"></button>
       </div>
     </div>
