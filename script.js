@@ -77,6 +77,15 @@ document.getElementById('next-btn').addEventListener('click', () => {
 }
 );
 
+document.getElementById('like-button').addEventListener('click', () => {
+
+});
+
+document.getElementById('dislike-button').addEventListener('click', () => {
+
+});
+
+
 document.getElementById('thumbnail').addEventListener('click', () => {
     getData();
 });

@@ -153,6 +153,7 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 1px 5px
 }
 
 .track-time {
@@ -290,4 +291,22 @@ html {
   border-radius: 50%;
   border: 2px solid #f50;
   box-shadow: -407px 0 0 400px #f50;
+}
+
+
+.like-button {
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+}
+.dislike-button {
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 110px;
+  gap: 20px;
 }
