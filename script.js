@@ -106,21 +106,9 @@ function setVol() {
     fetch(`http://192.168.0.162:13091/volume/${document.getElementById('volume-slider').value}`);
 }
 
-document.getElementById('progress-bar').addEventListener('change', () => {
-  /*  fetch(`http://localhost:13090/track/seek`,{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            type: "seek",
-            time: document.getElementById('progress-bar').value * 1000,
-        }),
-    })
-    .then(() => getDataAfterTimeout(2000));
-    */
+function seek(){
 
-    fetch(`http://localhost:13091/seek/${document.getElementById('progress-bar').value}`)
-    .then(() => getDataAfterTimeout(3000));
-
-});
+    console.log(document.getElementById('progress-bar').value)
+    fetch(`http://192.168.0.162:13091/seek/${document.getElementById('progress-bar').value}`)
+    .then(() => getDataAfterTimeout(500));
+}
