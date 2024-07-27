@@ -10,7 +10,7 @@ function autoIncrementTime() {
         clearInterval(progressInterval);
         getData();
         return;
-    } 
+    }
 
     seconds++;
     if (seconds >= 60) {
@@ -45,6 +45,7 @@ function getData() {
             document.getElementById('progress-bar').value = data.progress;
             const darker = `rgb(${data.accentr - 100}, ${data.accentg - 100}, ${data.accentb - 100})`;
             const lighter = `rgb(${data.accentr + 50}, ${data.accentg + 50}, ${data.accentb + 50})`;
+            const evenLighter = `rgba(${data.accentr + 150}, ${data.accentg + 150}, ${data.accentb + 150}, 0.2)`;
 
             document.getElementById('volume-slider-style').innerHTML = `.volume-slider::-webkit-slider-thumb {border: 2px solid ${darker}; box-shadow: -407px 0 0 400px ${darker};}`;
 
@@ -53,7 +54,7 @@ function getData() {
                 progressInterval = setInterval(autoIncrementTime, 1000);
             }
             document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:${lighter};border: 2px solid rgb(${data.accentr},${data.accentg},${data.accentb}); box-shadow: -4007px 0 0 4000px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
-
+            document.getElementById("progress-bar").style.backgroundColor = evenLighter;
         });
 }
 getData()
@@ -78,11 +79,31 @@ document.getElementById('next-btn').addEventListener('click', () => {
 );
 
 document.getElementById('like-button').addEventListener('click', () => {
-
+    fetch('http://192.168.0.162:13091/like')
+        .then((response) => response.text())
+        .then((data) => {
+            if (data === "true") {
+                document.getElementById('like-btn-img').src = './assets/likeF.png';
+                document.getElementById('dislike-btn-img').src = './assets/dislike.png';
+            } else {
+                document.getElementById('like-btn-img').src = './assets/like.png';
+                document.getElementById('dislike-btn-img').src = './assets/dislike.png';
+            }
+        })
 });
 
 document.getElementById('dislike-button').addEventListener('click', () => {
-
+    fetch('http://192.168.0.162:13091/dislike')
+        .then((response) => response.text())
+        .then((data) => {
+            if (data === "true") {
+                document.getElementById('dislike-btn-img').src = './assets/dislikeF.png';
+                document.getElementById('like-btn-img').src = './assets/like.png';
+            } else {
+                document.getElementById('dislike-btn-img').src = './assets/dislike.png';
+                document.getElementById('like-btn-img').src = './assets/like.png';
+            }
+        })
 });
 
 
@@ -115,9 +136,9 @@ function setVol() {
     fetch(`http://192.168.0.162:13091/volume/${document.getElementById('volume-slider').value}`);
 }
 
-function seek(){
+function seek() {
 
     console.log(document.getElementById('progress-bar').value)
     fetch(`http://192.168.0.162:13091/seek/${document.getElementById('progress-bar').value}`)
-    .then(() => getDataAfterTimeout(500));
+        .then(() => getDataAfterTimeout(500));
 }
