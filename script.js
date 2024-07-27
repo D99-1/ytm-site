@@ -30,6 +30,8 @@ function secondsToTime(seconds) {
 
 function getData() {
     console.log('Getting data from server');
+    document.getElementById('like-btn-img').src = './assets/like.png';
+    document.getElementById('dislike-btn-img').src = './assets/dislike.png';
     fetch('http://192.168.0.162:13091')
         .then(response => response.json())
         .then(data => {
@@ -55,6 +57,16 @@ function getData() {
             }
             document.getElementById('progress-bar-style').innerHTML = `.progress-bar::-webkit-slider-thumb {background:${lighter};border: 2px solid rgb(${data.accentr},${data.accentg},${data.accentb}); box-shadow: -4007px 0 0 4000px rgb(${data.accentr},${data.accentg},${data.accentb});}`;
             document.getElementById("progress-bar").style.backgroundColor = evenLighter;
+
+            if (data.liked) {
+                document.getElementById('like-btn-img').src = './assets/likeF.png';
+                document.getElementById('dislike-btn-img').src = './assets/dislike.png';
+            } else if(data.disliked) {
+                document.getElementById('dislike-btn-img').src = './assets/dislikeF.png';
+                document.getElementById('like-btn-img').src = './assets/like.png';
+            }
+
+
         });
 }
 getData()
@@ -74,7 +86,7 @@ document.getElementById('prev-btn').addEventListener('click', () => {
 
 document.getElementById('next-btn').addEventListener('click', () => {
     fetch('http://192.168.0.162:13091/next')
-        .then(() => getDataAfterTimeout(1000));
+        .then(() => getDataAfterTimeout(1250));
 }
 );
 
@@ -104,6 +116,7 @@ document.getElementById('dislike-button').addEventListener('click', () => {
                 document.getElementById('like-btn-img').src = './assets/like.png';
             }
         })
+        .then(() => getDataAfterTimeout(500));
 });
 
 
